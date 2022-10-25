@@ -6,6 +6,7 @@ class Character:
         self.align = align
         self.armorClass = armorClass
         self.hitPoints  = hitPoints
+        self.is_dead = False
         
     # Charecter Can attack
     # attack greater than or equal to  enemy armorClass
