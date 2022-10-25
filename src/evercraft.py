@@ -18,6 +18,14 @@ class Character:
         else: 
             return False
     
+    #damaged
     #if attack == true
         #enemy gets 1 hp
     # else if diceroll is 20
+
+    def damaged(self,diceroll,armorClass):
+        if diceroll >= self.armorClass:
+            return self.hitPoints - 1
+        else:
+             return self.hitPoints
+
