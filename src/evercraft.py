@@ -10,5 +10,14 @@ class Character:
     # Charecter Can attack
     # attack greater than or equal to  enemy armorClass
     #if attack = 20 always hit
-    def attack(self, hitPoints):
-        return self.hitPoints 
+    def attack(self,diceroll,enemyArmor):
+        if diceroll == 20:
+            return 'Critical Hit'
+        elif diceroll >= enemyArmor:
+            return True
+        else: 
+            return False
+    
+    #if attack == true
+        #enemy gets 1 hp
+    # else if diceroll is 20
