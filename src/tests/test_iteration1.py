@@ -25,25 +25,28 @@ def test_hitPoints():
     blodgram = Character('blodgram', 'good')
     assert blodgram.hitPoints == 5
 
-# hit
+# attack Test
 
 
 def test_attack():
     blodgram = Character('blodgram', 'good')
-    assert blodgram.attack(11, 10) == True  # hit
+    mario = Character('Mario', 'bad')
+    assert blodgram.attack('10', mario) == 10
 
-# nothit
 
-
-def test_no_hit():
+def test_attack1():
     blodgram = Character('blodgram', 'good')
-    assert blodgram.attack(8, 10) == False
+    mario = Character('Mario', 'bad')
+    blodgram.attack('19', mario)
+    assert blodgram.strength == 14
+    
 
 
-# Critical hit test
-def test_critical_hit():
-    blodgram = Character('blodgram', 'good')
-    assert blodgram.attack(20, 10) == 'Critical Hit'
+#defence test
+
+def test_defence():
+    mario = Character('Mario', 'bad')
+    assert mario.defense('19') == 14
 
 
 def test_damaged():
@@ -81,6 +84,20 @@ def test_wisdom():
     blodgram = Character('Blodgram', 'good')
     assert blodgram.wisdom == 10
 
+
 def test_intelligence():
     blodgram = Character('Blodgram', 'good')
     assert blodgram.intelligence == 10
+
+
+def test_charisma():
+    blodgram = Character('Blodgram', 'good')
+    assert blodgram.charisma == 10
+
+# def test_mod_diceRoll():
+#   blodgram = Character('Blodgram', 'good')
+#   assert blodgram.strength + abilitiesChart('')
+
+
+def test_ability_chart():
+    assert abilitiesChart['1'] == -5
