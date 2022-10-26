@@ -39,14 +39,14 @@ def test_attack1():
     mario = Character('Mario', 'bad')
     blodgram.attack('19', mario)
     assert blodgram.strength == 14
-    
 
 
-#defence test
+# defence test
 
 def test_defence():
     mario = Character('Mario', 'bad')
-    assert mario.defense('19') == 14
+    mario.defense('19')
+    mario.dexterity == 14
 
 
 def test_damaged():

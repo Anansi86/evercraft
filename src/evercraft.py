@@ -42,8 +42,7 @@ class Character():
     # if attack = 20 always hit
     # def attack(self, diceroll, enemyArmor, enemyHp):
 
-
-    def attack(self,diceRoll, enemy):
+    def attack(self, diceRoll, enemy):
         if enemy.is_dead == False:
             modifier = abilitiesChart[diceRoll]
             self.strength = self.strength + modifier
@@ -51,8 +50,8 @@ class Character():
 
     def defense(self, diceRoll):
         modifier = abilitiesChart[diceRoll]
-        return self.dexterity + modifier
-        
+        self.dexterity = self.dexterity + modifier
+        return self.dexterity
 
     # damaged
     # if attack == true
@@ -83,5 +82,3 @@ class Character():
 # lets say we roll a 20, we will increase ability by 5
 
 # function modStrength(diceroll):
-
-
