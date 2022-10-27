@@ -45,14 +45,67 @@ def test_attack1():
 
 def test_defence():
     mario = Character('Mario', 'bad')
-    mario.defense('19')
-    mario.dexterity == 14
+    mario.defense('20')
+    assert mario.dexterity == 15
+
+###################
+# Battle test
+# def test_battle():
+#     mario = Character('Mario', 'bad')
+#     assert mario.battle(1,2) == 'block'
+########################
 
 
-def test_damaged():
+# combat class
+def test_combat_class():
+    mario = Character('Mario', 'bad')
     blodgram = Character('blodgram', 'good')
-    mario = Character('mario', 'bad')
-    assert blodgram.damaged(10, mario.armorClass) == 4
+    battle = Combat(mario, blodgram)
+    assert isinstance(battle, Combat)
+
+
+def test_combat_attr():
+    mario = Character('Mario', 'bad')
+    blodgram = Character('blodgram', 'good')
+    battle = Combat(mario, blodgram)
+    battle.attacker != None
+
+
+def test_combat_defender():
+    blodgram = Character('blodgram', 'good')
+    mario = Character('Mario', 'bad')
+
+    battle = Combat(mario, blodgram)
+    battle.defender != None
+
+
+# def test_fight():
+#     blodgram = Character('blodgram', 'good')
+#     mario = Character('Mario', 'bad')
+#     battle = Combat(blodgram, mario)
+#     assert battle.fight() != 'Defender is Dead'
+
+
+# def test_battle_dead():
+#     blodgram = Character('blodgram', 'good')
+#     mario = Character('Mario', 'bad')
+#     battle = Combat(blodgram, mario)
+#     assert battle.fight() == 'Defender is Alive'
+
+
+
+
+
+def test_level():
+    blodgram = Character('blodgram', 'good')
+    assert blodgram.level == 1
+
+####################
+# def test_damaged():
+#     blodgram = Character('blodgram', 'good')
+#     mario = Character('mario', 'bad')
+#     assert blodgram.damaged(10, mario.armorClass) == 4
+#####################
 
 
 def test_is_dead():

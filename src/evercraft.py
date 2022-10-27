@@ -36,14 +36,15 @@ class Character():
         self.wisdom = 10
         self.intelligence = 10
         self.charisma = 10
+        self.xp = 0
+        self.level = 1
 
     # Charecter Can attack
     # attack greater than or equal to  enemy armorClass
     # if attack = 20 always hit
     # def attack(self, diceroll, enemyArmor, enemyHp):
 
-    def attack(self, diceRoll, enemy):
-        if enemy.is_dead == False:
+    def attack(self, diceRoll):
             modifier = abilitiesChart[diceRoll]
             self.strength = self.strength + modifier
             return self.strength
@@ -53,32 +54,37 @@ class Character():
         self.dexterity = self.dexterity + modifier
         return self.dexterity
 
-    # damaged
-    # if attack == true
-        # enemy gets 1 hp
-    # else if diceroll is 20
 
-    def damaged(self, diceroll, armorClass):
-        if diceroll >= self.armorClass:
-            return self.hitPoints - 1
-        else:
-            return self.hitPoints
-
-    def mod_diceRoll():
-        # return score
-        pass
+    # def battle(self, attack, defense):
+    #     if defense > attack:
+    #         return 'block'
+    #     else:
+    #         return "hit"
 
 
-# Strength, measuring physical power
-# Dexterity, measuring agility
-# Constitution, measuring endurance
-# Intelligence, measuring reasoning and memory
-# Wisdom, measuring Perception and Insight
-# Charisma, measuring force of Personality
+    # Strength, measuring physical power
+    # Dexterity, measuring agility
+    # Constitution, measuring endurance
+    # Intelligence, measuring reasoning and memory
+    # Wisdom, measuring Perception and Insight
+    # Charisma, measuring force of Personality
 
-# Roll dice, based on the dice roll, abilities will
-# go up or down.
+    # Roll dice, based on the dice roll, abilities will
+    # go up or down.
 
-# lets say we roll a 20, we will increase ability by 5
+    # lets say we roll a 20, we will increase ability by 5
 
-# function modStrength(diceroll):
+class Combat: 
+    def __init__ (self, attacker,defender):
+        self.attacker = attacker
+        self.defender = defender
+
+    def fight(self):
+        if self.defender.is_dead == False:
+            if self.attacker.attack(diceRoll) > self.defender.defense(diceRoll):
+                defender.hitPoints = defender.hitpoints - 1
+
+                # if defender.hitpoints == 0 :
+                    #defender.is_dead = True
+        #else 
+            #pass
